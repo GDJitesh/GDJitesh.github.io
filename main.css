@@ -56,10 +56,26 @@ img {
   letter-spacing: 0.3rem;
   line-height: 2.5rem;
   position: relative;
-  width: 100vh;
+  width: 97vw;
   top: 75%;
   left: 3%;
 }
 
+.container#pg-2 {
+    background-color: #3D3B3C;
+    color: #f7f4f6;
+  }
+
 div#pg-2 > div#side {
+    float: inline-start;
+    background-color: #161415;
+    height: 100vh;
+    width: 30vw;
+}
+
+div#pg-2 > div#about-me{
+    float: inline-end;
+    background-color: inherit;
+    height: 100vh;
+    width: 70vw;
 }
