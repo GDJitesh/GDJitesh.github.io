@@ -23,22 +23,24 @@ function smoothScroll(targetElement, duration) {
   requestAnimationFrame(animation);
 }
 
-document.querySelector("div#scroll>img").addEventListener("click", function (e) {
-  e.preventDefault();
-  var targetId = this.dataset.scroll;
-  smoothScroll(targetId, 1000);
-});
+document
+  .querySelector("div#scroll>img")
+  .addEventListener("click", function (e) {
+    e.preventDefault();
+    var targetId = this.dataset.scroll;
+    smoothScroll(targetId, 1000);
+  });
 
 // Select the element you want to observe
-const element = document.querySelector('div#scroll>img');
+const element = document.querySelector("div#scroll>img");
 
 // Define the callback function that will be called when the element enters or leaves the viewport
 const handleIntersection = (entries, observer) => {
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.style.animationPlayState = 'running';
+      entry.target.style.animationPlayState = "running";
     } else {
-      entry.target.style.animationPlayState = 'paused';
+      entry.target.style.animationPlayState = "paused";
     }
   });
 };
@@ -48,4 +50,3 @@ const observer = new IntersectionObserver(handleIntersection);
 
 // Start observing the element
 observer.observe(element);
-
