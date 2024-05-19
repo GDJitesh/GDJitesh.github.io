@@ -28,3 +28,24 @@ document.querySelector("div#scroll>img").addEventListener("click", function (e) 
   var targetId = this.dataset.scroll;
   smoothScroll(targetId, 1000);
 });
+
+// Select the element you want to observe
+const element = document.querySelector('div#scroll>img');
+
+// Define the callback function that will be called when the element enters or leaves the viewport
+const handleIntersection = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animationPlayState = 'running';
+    } else {
+      entry.target.style.animationPlayState = 'paused';
+    }
+  });
+};
+
+// Create the Intersection Observer instance and pass the callback function
+const observer = new IntersectionObserver(handleIntersection);
+
+// Start observing the element
+observer.observe(element);
+
