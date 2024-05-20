@@ -31,22 +31,43 @@ document
     smoothScroll(targetId, 1000);
   });
 
-// Select the element you want to observe
-const element = document.querySelector("div#scroll>img");
+//check for viewport visiblity function
+function isElementVisible(el, visibilityThreshold = 0.1) {
+  const rect = el.getBoundingClientRect();
+  const viewHeight = Math.max(
+    document.documentElement.clientHeight,
+    window.innerHeight
+  );
+  const aboveViewBottom = rect.bottom < 0;
+  const belowViewTop = rect.top - viewHeight >= 0;
 
-// Define the callback function that will be called when the element enters or leaves the viewport
-const handleIntersection = (entries, observer) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.style.animationPlayState = "running";
+  if (aboveViewBottom || belowViewTop) {
+    return false;
+  }
+
+  const totalVisibleHeight =
+    Math.min(rect.bottom, viewHeight) - Math.max(rect.top, 0);
+  const elementHeight = rect.bottom - rect.top;
+  const visiblePercentage = totalVisibleHeight / elementHeight;
+
+  return visiblePercentage >= visibilityThreshold;
+}
+
+// Set an interval to check the element's visibility
+function checkVisibility(elementID, shouldClear = true) {
+  const checkVisibilityInterval = setInterval(() => {
+    const yourElement = document.querySelector(elementID);
+    if (yourElement && isElementVisible(yourElement)) {
+      yourElement.style.animationPlayState = "running";
+      // Clear the interval if the animation is running and shouldClear is true
+      if (shouldClear && yourElement.style.animationPlayState === "running") {
+        clearInterval(checkVisibilityInterval);
+      }
     } else {
-      entry.target.style.animationPlayState = "paused";
+      yourElement.style.animationPlayState = "paused";
     }
-  });
-};
+  }, 100); // Check every 100 milliseconds
+}
 
-// Create the Intersection Observer instance and pass the callback function
-const observer = new IntersectionObserver(handleIntersection);
-
-// Start observing the element
-observer.observe(element);
+checkVisibility("div#pg-2 > div#side");
+checkVisibility("div#scroll>img", false);

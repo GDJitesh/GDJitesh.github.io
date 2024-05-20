@@ -28,15 +28,14 @@ div#scroll {
   justify-content: center;
   bottom: -69vh;
   height: 7rem;
-}
-
-img {
-  position: relative;
-  width: 1.7rem;
-  height: auto;
-  object-fit: contain;
-  filter: invert(100);
-  animation: move 3s ease-out infinite;
+  img {
+    position: relative;
+    width: 1.7rem;
+    height: auto;
+    object-fit: contain;
+    filter: invert(100);
+    animation: move 3s ease-out infinite;
+  }
 }
 
 @keyframes move {
@@ -66,12 +65,25 @@ img {
     color: #f7f4f6;
   }
 
-div#pg-2 > div#side {
-    float: inline-start;
+/* Define the animation */
+@keyframes test {
+    from {
+      width: 0vw; /* Start with 0 viewport width */
+    }
+    to {
+      width: 30vw; /* Animate to 30 viewport width */
+    }
+  }
+  
+  /* Apply styles to the element */
+  div#pg-2 > div#side {
+    float: left; /* Corrected float value */
     background-color: #161415;
     height: 100vh;
     width: 30vw;
-}
+    animation: test 1.5s ease-in-out 1;
+    animation-play-state: paused;
+  }
 
 div#pg-2 > div#about-me{
     float: inline-end;
