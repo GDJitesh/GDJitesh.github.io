@@ -69,5 +69,5 @@ function checkVisibility(elementID, shouldClear = true) {
   }, 100); // Check every 100 milliseconds
 }
 
-checkVisibility("div#pg-2 > div#side");
+checkVisibility("div#pg-2 > div#side-contact");
 checkVisibility("div#scroll>img", false);
