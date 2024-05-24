@@ -29,6 +29,7 @@ div#scroll {
   justify-content: center;
   bottom: -69vh;
   height: 7rem;
+
   img {
     position: relative;
     width: 3rem;
@@ -90,6 +91,7 @@ div#pg-2 > div#side-contact {
   animation: move-in 1.5s ease-in-out 1;
   animation-play-state: paused;
   z-index: 2;
+
   div#links {
     overflow: hidden;
     position: relative;
@@ -101,23 +103,25 @@ div#pg-2 > div#side-contact {
     line-height: 3.5rem;
     margin: 0 1.5rem;
     color: rgb(208, 208, 208);
-    div#email{
+
+    div#email {
       overflow: hidden;
       height: 2.7rem;
       width: auto;
-      margin-top: .8rem;
+      margin-top: 0.8rem;
       transition: 1.5s;
-      div{
+
+      div {
         font-size: 1.28rem;
         font-weight: normal;
         margin: 1.25rem 0;
         letter-spacing: normal;
       }
     }
-    div#email:hover{
+    div#email:hover {
       height: 5.55rem;
     }
-    img{
+    img {
       height: 1.5rem;
       margin-right: 1.5rem;
       filter: invert(100);
@@ -131,29 +135,95 @@ div#pg-2 > div#side-contact:hover {
 }
 
 div#pg-2 > div#introduction {
-  color: #d7d7d7;
+  color: #ebebeb;
   float: inline-end;
   background-color: inherit;
   height: 100vh;
   width: 75vw;
-  div#about-me {
+
+  div.heading {
+    margin-top: 1rem;
     h2 {
       font-size: 1.9rem;
-      padding: 1.9rem 1.5rem;
+      padding: 2.2rem 1.5rem;
     }
+  }
+
+  div.content-background {
+    box-shadow: 0px 0px 3px 3px rgba(115, 115, 115, 0.5);
+    background-color: #1c1c1c;
+    padding: 2rem 1.5rem;
+    margin: 0px 1.5rem;
+    transition: 0.3s;
+  }
+
+  div.content-background:hover {
+    box-shadow: 0px 0 5px 5px rgba(255, 255, 255, 0.259);
+  }
+  div#about-me {
     div#about-me-content {
       text-align: left;
-      background-color: #1c1c1c;
       letter-spacing: 0.2rem;
       line-height: 1.8rem;
       font-size: 1.25rem;
-      padding: 1.9rem 1.5rem;
-      box-shadow: 0px 0px 3px 3px rgba(115, 115, 115, 0.5);
-      transition: 0.3s;
-      margin: 0px 1.5rem;
     }
-    div#about-me-content:hover {
-      box-shadow: 0px 0 5px 5px rgba(255, 255, 255, 0.259);
+  }
+  div#skill {
+    h3 {
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+    div#engine,
+    div#programming {
+      padding-top: 1.2rem;
+      padding-right: 1rem;
+      margin-left: 4rem;
+      width: 40%;
+      display: inline-block;
+
+      img {
+        filter: invert(100);
+        height: 6rem;
+        width: auto;
+      }
+    }
+
+    div#tool {
+      padding-left: 4rem;
+      padding-top: 1rem;
+      font-weight: bold;
+      font-size: 0.9rem;
+      letter-spacing: 0.2rem;
+
+      div {
+        padding-right: 9.9rem;
+        width: 6rem;
+        display: inline-block;
+        transform: translateX(10%);
+      }
+
+      div#unity {
+        img {
+          transform: translateX(-25%);
+        }
+      }
+      div#unreal {
+        img {
+          transform: translateX(-12%);
+        }
+      }
+    }
+
+    div#language {
+      padding-left: 4rem;
+      padding-top: 1rem;
+
+      div {
+        padding-top: 1.069rem;
+        padding-right: 9.9rem;
+        width: 6rem;
+        display: inline-block;
+      }
     }
   }
 }
