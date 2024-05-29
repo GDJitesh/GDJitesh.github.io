@@ -59,6 +59,7 @@ function checkVisibility(elementID, shouldClear = true) {
     const yourElement = document.querySelector(elementID);
     if (yourElement && isElementVisible(yourElement)) {
       yourElement.style.animationPlayState = "running";
+      
       // Clear the interval if the animation is running and shouldClear is true
       if (shouldClear && yourElement.style.animationPlayState === "running") {
         clearInterval(checkVisibilityInterval);
@@ -71,4 +72,3 @@ function checkVisibility(elementID, shouldClear = true) {
 
 checkVisibility("div#pg-2 > div#side-contact");
 checkVisibility("div#scroll>img", false);
-

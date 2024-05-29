@@ -72,12 +72,22 @@ div#scroll {
   background-color: #000000;
   color: #f7f4f6;
   z-index: 0;
-  img#logo{
-    display: inline;
-    z-index: 1;
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
+  div.background {
+    position: absolute; /* Telling our absolute positioned video to be relative to this element */
+    width: 100%; /* Set the desired width */
+    height: 100vh; /* Set the desired height (viewport height) */
+    overflow: hidden; /* Prevent video overflow */
+    text-align: center; /* Center the content vertically and horizontally */
+  }
+  
+  video {
+    position: absolute; /* Position the video absolutely within the container */
+    top: 0;
+    left: 0;
+    width: 100%; /* Cover the entire container */
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio */
+    z-index: -1; /* Place the video behind other content */
   }
 }
 
@@ -93,7 +103,6 @@ div#scroll {
 
 /* Apply styles to the element */
 div#pg-2 > div#side-contact {
-  opacity: 0;
   float: left;
   position: inherit;
   background-color: #111111;
@@ -145,12 +154,11 @@ div#pg-2 > div#side-contact {
 
 
 div#pg-2 > div#introduction {
-  opacity: 0;
   color: #ebebeb;
   float: inline-end;
   height: 100vh;
   width: 75vw;
-  background: rgba(0, 0, 0, 0);
+  background: rgba(0, 0, 0, 0.475);
 
   div.heading {
     h2 {
