@@ -1,0 +1,121 @@
+.svg-animate,
+.svg-animate-container .hidden {
+  display: none;
+}
+.svg-animate-img svg {
+  max-width: 100%;
+}
+.svg-animate-img path {
+  fill-opacity: 0;
+  stroke-opacity: 0;
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+  transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
+  animation-name: StrokeIn, DrawStroke, FillIn;
+  animation-duration: 1s, 2s, 1s;
+  animation-delay: 0s, 0.5s, 1.5s;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+.svg-animate-img path.stroked {
+  stroke-dasharray: 0;
+}
+.svg-animate-img path.active-path {
+  stroke: red !important;
+  stroke-width: 2px !important;
+}
+svg.filtered {
+  filter: none;
+  transition: 1s;
+}
+svg.filtered.grayscale {
+  filter: grayscale(100%);
+}
+@keyframes rotating {
+  0% {
+    transform: rotate(0degdeg);
+  }
+  to {
+    transform: rotate(360degdeg);
+  }
+}
+.rotating {
+  animation: rotating 2s linear infinite !important;
+  moz-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  fill-opacity: inherit !important;
+  stroke-opacity: inherit !important;
+}
+@keyframes DrawStroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes StrokeIn {
+  0% {
+    stroke-opacity: 0;
+  }
+  to {
+    stroke-opacity: 1;
+  }
+}
+@keyframes FillIn {
+  0% {
+    fill-opacity: 0;
+  }
+  to {
+    fill-opacity: 1;
+  }
+}
+svg path.draw-1 {
+  animation: draw 1s linear;
+}
+svg path.draw-2 {
+  animation: draw 2s linear;
+}
+svg path.draw-3 {
+  animation: draw 3s linear;
+}
+svg path.draw-4 {
+  animation: draw 4s linear;
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.svg-animate-triangle-img svg {
+  overflow: visible;
+}
+.svg-animate-triangle-container {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+}
+.svg-animate-triangle-img svg {
+  transition: 1s;
+  filter: grayscale(0);
+}
+.svg-animate-triangle-img path {
+  opacity: 0;
+  transition: 1.5s;
+  transform-origin: 50% 50%;
+}
+.svg-animate-triangle-img.disabled path {
+  opacity: 0;
+  transition: none;
+}
+.svg-animate-triangle-img.grayscaled svg {
+  filter: grayscale(100%);
+}
+.svg-animate-triangle-img.animated-visible path,
+.svg-animate-triangle-img.shown path {
+  opacity: 1;
+}
+#slider,
+#slider svg {
+  height: 500px;
+}
