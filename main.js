@@ -71,3 +71,4 @@ function checkVisibility(elementID, shouldClear = true) {
 
 checkVisibility("div#pg-2 > div#side-contact");
 checkVisibility("div#scroll>img", false);
+
